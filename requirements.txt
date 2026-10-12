@@ -1,0 +1,20 @@
+# 鲸鲸桌宠 —— 跑源码 / 重新打包 WhalePet.exe 需要的依赖
+#
+# 为什么要有这个文件：以前依赖只活在"那台打包机的那个虚拟环境"里，
+# 换台机器想重打一次包，得先靠报错一个个试出来缺什么。
+#
+# 用法：
+#     pip install -r requirements.txt          # 跑源码 / 打包
+#     pip freeze > requirements-lock.txt       # 建议在打包机上固定一次实际版本
+#
+# 版本区间是"能跑"的下限，不是精确锁定 —— 请在打包机上 pip freeze 后
+# 把确切版本记到 requirements-lock.txt（PyInstaller 对 Qt 版本很敏感，
+# 锁住之后重打包的行为才可复现）。
+
+PySide6>=6.5,<7          # 界面 + QtNetwork（聊天走 QNetworkAccessManager，不装 requests）
+zstandard>=0.21          # dsh_session_log 读 DSH 会话日志（zstd 压缩）
+websockets>=11.0         # pet_feishu 的长连接（飞书接入）
+
+# 只有打包/装机脚本用得到：
+pyinstaller>=6.0         # 按 WhalePet.spec 打包
+pywin32>=306             # install.py 创建桌面快捷方式（win32com）

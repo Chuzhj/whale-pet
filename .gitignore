@@ -1,0 +1,53 @@
+# ================= 构建产物 =================
+# 打包出来的 exe 与运行库（135 MB）—— 不进仓库，走 GitHub Releases 分发
+WhalePet_onedir/
+build/
+dist/
+
+# PyInstaller 中间产物
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# 注意：*.spec 是打包配置，属于源码，不要忽略
+
+# ================= 虚拟环境 =================
+.venv/
+venv/
+env/
+.py313/
+.conda/
+
+# ================= 运行期个人数据（重要） =================
+# 这些是程序跑起来才生成的，含 API key / 飞书 App Secret / 聊天记录，
+# 绝不进仓库。程序需要它们时会在配置目录里自己创建。
+whale_pet_config.json
+whale_pet_state.json
+whale_pet_chat_log.jsonl
+whale_pet_memory.jsonl
+whale_pet_balance.json
+feishu_log.txt
+feishu_media/
+sounds_cache/
+logs/
+versions/
+
+# ================= 开发记录 =================
+# 说明.md 与 *-改动说明.md 是开发记录，内含开发机的本机绝对路径
+# 和内部语气，不提交到公开仓库；但文件在本机保留，不要删（它是最完整的改动记录）。
+说明.md
+*-改动说明.md
+
+# ================= 压缩包 =================
+*.zip
+*.7z
+*.tar.gz
+
+# ================= 编辑器 / 系统 =================
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

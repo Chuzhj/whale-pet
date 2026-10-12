@@ -1,0 +1,17 @@
+# 默认由 git 自动判断文本/二进制
+* text=auto
+
+# 源码与文档统一 LF，避免跨平台换行符漂移
+*.py    text eol=lf
+*.spec  text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+
+# 素材与可执行文件按二进制处理，禁止任何换行转换
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.wav   binary
+*.ico   binary
+*.exe   binary
+*.dll   binary
